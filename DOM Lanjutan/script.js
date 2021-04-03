@@ -29,14 +29,26 @@ const close = document.querySelectorAll('.close');
 // }
 
 //  cara lebih singkat dan menarik =================================================================
-close.forEach(function(el){
-    el.addEventListener('click', function(e){
-        e.target.parentElement.style.display = 'none';
-        e.preventDefault();
-    })
-});
+// close.forEach(function(el){
+//     el.addEventListener('click', function(e){
+//         e.target.parentElement.style.display = 'none';
+//         e.preventDefault();
+//     })
+// });
 
 // const nama = document.querySelector('.nama');
 // console.log(nama.parentElement);         // memanggil element orang tuanya atau parent
 // console.log(nama.nextSibling);  // memanggil saudara dalam bentuk (node) atau satu orang tuanya di bawah element yang dipilih (termasuk enter)
 // console.log(nama.nextElementSibling);  // memanggil bener2 elementnya setelahnya
+
+
+
+// buat penghapusan close lebih singkat dengan event bubbling
+const container = document.querySelector('.container');
+
+container.addEventListener('click', function(e){
+    if (e.target.className == 'close'){
+        e.target.parentElement.style.display = 'none';
+        e.preventDefault();
+    }
+});
